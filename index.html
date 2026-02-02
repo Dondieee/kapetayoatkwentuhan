@@ -6,10 +6,12 @@
   <title>Kape Tayo</title>
   <style>
     * { margin: 0; padding: 0; box-sizing: border-box; }
+
     body {
-      font-family: Arial, sans-serif;
+      font-family: "Inter", Arial, sans-serif;
       background: #f9f6f1;
       color: #333;
+      line-height: 1.6;
       transition: background 0.3s, color 0.3s;
     }
 
@@ -18,27 +20,38 @@
       color: #f0f0f0;
     }
 
+    /* Header */
     header {
-      background: #4b2e19;
+      background: #5f6a55;
       color: white;
-      padding: 20px;
+      padding: 25px 20px;
       text-align: center;
     }
+    header img {
+      width: 180px;
+      margin-bottom: 10px;
+    }
 
+    /* Navigation */
     nav {
       display: flex;
       justify-content: center;
       gap: 20px;
-      padding: 15px 0;
       background: #6a4325;
+      padding: 15px 10px;
+      flex-wrap: wrap;
     }
-
     nav a {
       color: white;
       text-decoration: none;
       font-weight: bold;
+      transition: 0.2s;
+    }
+    nav a:hover {
+      opacity: 0.75;
     }
 
+    /* Dark Mode Toggle */
     .toggle-dark {
       position: fixed;
       top: 20px;
@@ -48,14 +61,23 @@
       padding: 10px 15px;
       border-radius: 8px;
       cursor: pointer;
+      font-size: 14px;
+      z-index: 1000;
+      transition: 0.3s;
+    }
+    body.dark .toggle-dark {
+      background: #ddd;
+      color: #333;
     }
 
+    /* Hero Section */
     .hero {
-      padding: 80px 20px;
+      padding: 90px 20px;
       text-align: center;
       background-size: cover;
       background-position: center;
       color: white;
+      text-shadow: 1px 1px 4px rgba(0,0,0,0.5);
       animation: fadeIn 1.2s;
     }
 
@@ -64,12 +86,18 @@
       to { opacity: 1; }
     }
 
+    /* Sections */
     .section {
       padding: 50px 20px;
       max-width: 1100px;
       margin: auto;
     }
+    .section h2 {
+      margin-bottom: 20px;
+      font-size: 28px;
+    }
 
+    /* Menu Grid */
     .menu-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
@@ -84,34 +112,35 @@
       box-shadow: 0 2px 8px rgba(0,0,0,0.15);
       transition: 0.2s;
     }
-
-    body.dark .card { background: #2a2a2a; }
-
-    .card:hover { transform: scale(1.03); }
-
+    body.dark .card {
+      background: #2a2a2a;
+    }
+    .card:hover {
+      transform: scale(1.03);
+    }
     .card img {
       width: 100%;
       height: 180px;
       object-fit: cover;
     }
+    .card-body {
+      padding: 15px;
+    }
 
+    /* Carousel */
     .carousel {
       display: flex;
       overflow-x: auto;
       gap: 10px;
-      padding: 20px;
+      padding: 20px 0;
+      scroll-behavior: smooth;
     }
-
     .carousel img {
-      width: 300px;
+      width: 280px;
       height: 180px;
       border-radius: 10px;
       object-fit: cover;
-    }
-
-    .social {
-      text-align: center;
-      margin-top: 20px;
+      flex-shrink: 0;
     }
 
     footer {
@@ -123,12 +152,13 @@
     }
   </style>
 </head>
+
 <body>
 
 <div class="toggle-dark" onclick="toggleDarkMode()">🌙 Dark Mode</div>
 
-<header style="background:#5f6a55;">
-  <img src="kapetayo.png" alt="Kape Tayo Logo" style="width:180px; margin:auto; display:block;">
+<header>
+  <img src="kapetayo.png" alt="Kape Tayo Coffee Logo">
   <p>Your Local Brew · Fresh · Simple · Masarap</p>
 </header>
 
@@ -148,26 +178,53 @@
 <section id="menu" class="section">
   <h2>Our Best Sellers</h2>
   <div class="menu-grid">
-    <div class="card"><img src="https://images.unsplash.com/photo-1511920170033-f8396924c348"><div class="card-body"><h3>Iced Latte</h3><p>Rich espresso + creamy milk</p></div></div>
-    <div class="card"><img src="https://images.unsplash.com/photo-1521302080391-cb1a0905a42d"><div class="card-body"><h3>Spanish Latte</h3><p>Sweet. Smooth. Crowd favorite.</p></div></div>
-    <div class="card"><img src="https://images.unsplash.com/photo-1541167760496-1628856ab772"><div class="card-body"><h3>Caramel Macchiato</h3><p>Perfect balance of bold + sweet</p></div></div>
-    <div class="card"><img src="https://images.unsplash.com/photo-1459755486867-b55449bb39ff"><div class="card-body"><h3>Cold Brew</h3><p>Brewed 18 hours for full flavor</p></div></div>
+    <div class="card">
+      <img src="https://images.unsplash.com/photo-1511920170033-f8396924c348" alt="Iced Latte">
+      <div class="card-body">
+        <h3>Iced Latte</h3>
+        <p>Rich espresso + creamy milk</p>
+      </div>
+    </div>
+
+    <div class="card">
+      <img src="https://images.unsplash.com/photo-1521302080391-cb1a0905a42d" alt="Spanish Latte">
+      <div class="card-body">
+        <h3>Spanish Latte</h3>
+        <p>Sweet. Smooth. Crowd favorite.</p>
+      </div>
+    </div>
+
+    <div class="card">
+      <img src="https://images.unsplash.com/photo-1541167760496-1628856ab772" alt="Caramel Macchiato">
+      <div class="card-body">
+        <h3>Caramel Macchiato</h3>
+        <p>Perfect balance of bold + sweet</p>
+      </div>
+    </div>
+
+    <div class="card">
+      <img src="https://images.unsplash.com/photo-1459755486867-b55449bb39ff" alt="Cold Brew">
+      <div class="card-body">
+        <h3>Cold Brew</h3>
+        <p>Brewed 18 hours for full flavor</p>
+      </div>
+    </div>
   </div>
 </section>
 
 <section id="gallery" class="section">
   <h2>Gallery</h2>
   <div class="carousel">
-    <img src="https://images.unsplash.com/photo-1495474472287-4d71bcdd2085">
-    <img src="https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?2">
-    <img src="https://images.unsplash.com/photo-1509042239860-f550ce710b93">
+    <img src="https://images.unsplash.com/photo-1495474472287-4d71bcdd2085" alt="Coffee shop">
+    <img src="https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?2" alt="Coffee beans">
+    <img src="https://images.unsplash.com/photo-1509042239860-f550ce710b93" alt="Latte art">
   </div>
 </section>
 
 <section id="order" class="section">
   <h2>Online Ordering</h2>
   <p>Scan to order:</p>
-  <img src="https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=KapeTayoOrder" />
+  <img src="https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=KapeTayoOrder" alt="Kape Tayo QR Code">
 </section>
 
 <section id="loyalty" class="section">
@@ -199,6 +256,8 @@
 <script>
 function toggleDarkMode() {
   document.body.classList.toggle('dark');
+  document.querySelector(".toggle-dark").textContent =
+    document.body.classList.contains('dark') ? "☀️ Light Mode" : "🌙 Dark Mode";
 }
 </script>
 
