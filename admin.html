@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Kape Tayo | Admin Dashboard</title>
+<link rel="stylesheet" href="assets/css/admin.css">
+
+<!-- Icons -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css" rel="stylesheet">
+
+<!-- Chart.js for analytics -->
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+</head>
+<body>
+
+<!-- -------------- LOGIN SCREEN -------------- -->
+<div id="adminLoginPage" class="login-container">
+    <h1>Kape Tayo Admin</h1>
+
+    <div class="login-box">
+        <h2>Login as Admin</h2>
+        <input id="loginEmail" type="email" placeholder="Email">
+        <input id="loginPassword" type="password" placeholder="Password">
+        <button id="btnEmailLogin">Login</button>
+
+        <p class="divider">OR</p>
+
+        <h3>Phone Login (OTP)</h3>
+        <input id="otpPhone" type="text" placeholder="+63 9XX XXX XXXX">
+        <button id="btnSendOTP">Send OTP</button>
+
+        <div id="otpBox" style="display:none;">
+            <input id="otpCode" placeholder="Enter OTP Code">
+            <button id="btnVerifyOTP">Verify</button>
+        </div>
+
+        <div id="recaptcha-container"></div>
+    </div>
+</div>
+
+
+<!-- -------------- MAIN ADMIN DASHBOARD -------------- -->
+<div id="adminPanel" class="admin-panel hidden">
+
+    <!-- SIDEBAR -->
+    <aside class="sidebar">
+        <h2>KAPE TAYO</h2>
+
+        <ul class="nav-menu">
+            <li class="nav-item active" data-section="dashboardSection"><i class="bi bi-speedometer2"></i> Dashboard</li>
+            <li class="nav-item" data-section="productsSection"><i class="bi bi-cup-hot"></i> Products</li>
+            <li class="nav-item" data-section="ordersSection"><i class="bi bi-receipt"></i> Orders</li>
+            <li class="nav-item" data-section="vouchersSection"><i class="bi bi-ticket"></i> Vouchers</li>
+            <li class="nav-item" data-section="inventorySection"><i class="bi bi-box-seam"></i> Inventory</li>
+        </ul>
+
+        <button id="logoutBtn" class="logout-btn">
+            <i class="bi bi-box-arrow-right"></i> Logout
+        </button>
+    </aside>
+
+
+    <!-- MAIN CONTENT -->
+    <main class="content">
+
+        <!-- ------------------- DASHBOARD ------------------- -->
+        <section id="dashboardSection" class="section">
+            <h1>Dashboard Overview</h1>
+
+            <div class="cards">
+                <div class="card"><h3>Total Orders</h3><p id="statTotalOrders">0</p></div>
+                <div class="card"><h3>Total Sales</h3><p id="statTotalSales">₱0</p></div>
+                <div class="card"><h3>Best Seller</h3><p id="statBestSeller">-</p></div>
+                <div class="card"><h3>Low Stock Alerts</h3><p id="statLowStock">0</p></div>
+            </div>
+
+            <canvas id="salesChart" height="120"></canvas>
+        </section>
+
+
+
+        <!-- ------------------- PRODUCTS SECTION ------------------- -->
+        <section id="productsSection" class="section hidden">
+            <div class="header-row">
+                <h1>Products</h1>
+                <button id="btnAddProduct" class="primary-btn">+ Add Product</button>
+            </div>
+
+            <div id="productList" class="product-grid"></div>
+        </section>
+
+
+
+        <!-- ------------------- ADD PRODUCT MODAL ------------------- -->
+        <div id="addProductModal" class="modal hidden">
+            <div class="modal-content">
+                <h2>Add New Product</h2>
+
+                <input id="pName" placeholder="Product Name">
+                <input id="pPrice" type="number" placeholder="Price">
+                <select id="pCategory">
+                    <option value="hot">Hot</option>
+                    <option value="cold">Cold</option>
+                    <option value="signature">Signature</option>
+                    <option value="classic">Classic</option>
+                    <option value="flavored">Flavored</option>
+                </select>
+
+                <textarea id="pDesc" placeholder="Description"></textarea>
+                <textarea id="pIng" placeholder="Ingredients"></textarea>
+
+                <label class="imgLabel">Product Image</label>
+                <input id="pImageFile" type="file" accept="image/*">
+
+                <div class="modal-actions">
+                    <button class="primary-btn" id="btnSaveProduct">Save</button>
+                    <button class="secondary-btn" onclick="closeAddProductModal()">Cancel</button>
+                </div>
+            </div>
+        </div>
+
+
+
+        <!-- ------------------- ORDERS SECTION ------------------- -->
+        <section id="ordersSection" class="section hidden">
+            <h1>Orders</h1>
+            <div id="ordersList"></div>
+        </section>
+
+
+
+        <!-- ------------------- VOUCHERS SECTION ------------------- -->
+        <section id="vouchersSection" class="section hidden">
+            <h1>Voucher Generator</h1>
+
+            <div class="voucher-box">
+                <input id="voucherAmount" type="number" placeholder="Discount Amount (₱)">
+                <input id="voucherLimit" type="number" placeholder="Usage Limit">
+                <button id="btnGenerateVoucher" class="primary-btn">Generate Voucher</button>
+            </div>
+
+            <h2>Existing Vouchers</h2>
+            <div id="voucherList"></div>
+        </section>
+
+
+
+        <!-- ------------------- INVENTORY SECTION ------------------- -->
+        <section id="inventorySection" class="section hidden">
+            <h1>Inventory</h1>
+
+            <div id="inventoryList"></div>
+        </section>
+
+    </main>
+</div>
+
+
+<script type="module" src="assets/js/admin.js"></script>
+
+</body>
+</html>
