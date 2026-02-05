@@ -29,30 +29,7 @@ body.dark {background:#1a1a1a;color:#eee;}
 ---------------------------------------------------- */
 
 /* ---------------------------------------------------*/
-   .footer {
-  background: #222;
-  padding: 20px 0;
-  color: #fff;
-  text-align: center;
-  margin-top: 40px;
-}
-
-.footer-container {
-  max-width: 1200px;
-  margin: auto;
-}
-
-.social-icons a {
-  color: #fff;
-  margin: 0 12px;
-  font-size: 24px;
-  transition: 0.3s ease;
-}
-
-.social-icons a:hover {
-  color: white; /* gold accent for hover */
-}
-
+ 
 nav {
     padding:20px 40px;
     display:flex;
@@ -310,6 +287,50 @@ body.dark .toggle-dark {background:#ddd;color:#333;}
     .hero {padding:30px;height:70vh;background-attachment:scroll;}
     .hero h1 {font-size:44px;}
 }
+
+   /* FOOTER */
+   /* FOOTER (Luxury Minimalist, Olive-Themed) */
+.footer {
+  background: #ffffff;
+  border-top: 1px solid #ececec;
+  padding: 40px 0;
+  margin-top: 60px;
+  text-align: center;
+}
+
+.footer-container {
+  max-width: 1200px;
+  margin: auto;
+  padding: 0 20px;
+}
+
+.footer-text {
+  font-family: 'Inter', sans-serif;
+  font-size: 14px;
+  color: #2B2622;
+  opacity: 0.85;
+  margin-bottom: 18px;
+}
+
+.social-icons {
+  display: flex;
+  gap: 22px;
+  justify-content: center;
+  align-items: center;
+  margin-top: 10px;
+}
+
+.social-icons a {
+  font-size: 20px;
+  color: #3E4D38; /* Olive accent */
+  transition: 0.25s ease;
+}
+
+.social-icons a:hover {
+  color: #2F3B2B; /* Dark olive */
+  transform: translateY(-3px);
+}
+
 </style>
 </head>
 <body>
@@ -415,33 +436,33 @@ body.dark .toggle-dark {background:#ddd;color:#333;}
 </section>
 
 <!-- FOOTER -->
+
 <footer class="footer">
   <div class="footer-container">
-    <p>© 2026 Kape Tayo. All rights reserved.</p>
+    <p class="footer-text">© 2026 Kape Tayo. All rights reserved.</p>
 
     <div class="social-icons">
-
       <!-- Facebook -->
       <a href="https://www.facebook.com/profile.php?id=100066557031045" target="_blank">
-        <i class="fab fa-facebook-f"></i>
+        <i class="fa-brands fa-facebook-f"></i>
       </a>
 
       <!-- Instagram -->
       <a href="https://www.instagram.com/titodondie_/" target="_blank">
-        <i class="fab fa-instagram"></i>
+        <i class="fa-brands fa-instagram"></i>
       </a>
 
       <!-- TikTok -->
       <a href="https://www.tiktok.com/@dondieventure?is_from_webapp=1&sender_device=pc" target="_blank">
-        <i class="fab fa-tiktok"></i>
+        <i class="fa-brands fa-tiktok"></i>
       </a>
-
     </div>
   </div>
 </footer>
 
-<!-- Font Awesome Icons -->
-<script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+<!-- Font Awesome 6 -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/js/all.min.js" crossorigin="anonymous" defer></script>
+
 
 
 <!-- PRODUCT MODAL -->
