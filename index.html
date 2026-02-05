@@ -285,177 +285,352 @@ a {
 <body>
 
 <!-- NAVIGATION -->
-<header class="header">
-    <div class="nav-container">
-      <h1 class="logo">KAPE TAYO</h1>
-
-      <nav class="nav">
+<nav>
+    <img src="kapetayo (2).png">
+    <div>
         <a href="#menu">Menu</a>
+        <a href="#gallery">Gallery</a>
         <a href="#about">About</a>
         <a href="#order">Order</a>
-      </nav>
+        <img class="cart-icon" onclick="toggleCart()" src="https://cdn-icons-png.flaticon.com/512/891/891462.png">
+        <span class="toggle-dark" onclick="toggleDark()">🌙</span>
     </div>
-  </header>
+</nav>
 
-  <!-- HERO SECTION -->
-  <section class="hero">
-    <div class="hero-inner">
-      <h1 class="hero-title">Handcrafted Coffee, Made Simple.</h1>
-      <p class="hero-sub">Minimal ingredients. Maximum flavor. Brewed fresh for every Juan.</p>
+<!-- FLOATING BEANS -->
+<img class="bean" style="top:22%;left:6%;" src="https://i.imgur.com/1S7c8qA.png">
+<img class="bean" style="top:68%;left:84%;animation-duration:6s;" src="https://i.imgur.com/1S7c8qA.png">
 
-      <a href="#menu" class="btn-primary">View Menu</a>
+<!-- HERO -->
+<section class="hero">
+    <div class="hero-overlay"></div>
+    <div class="hero-content">
+        <h1>Kape Tayo,<br>at kwentuhan</h1>
+        <p>Your comfort drink — freshly brewed and made with heart.</p>
+        <a class="btn" href="#menu">Order Now</a>
     </div>
-  </section>
+</section>
 
-  <!-- MENU SECTION -->
-  <section id="menu" class="menu-section">
-    <h2 class="section-title">Our Coffee Menu</h2>
+<!-- MENU -->
+<section class="section" id="menu">
+    <h2>Our Coffee Selection</h2>
 
-    <!-- CATEGORY 1 -->
-    <h3 class="menu-category">✨ Signature Drinks</h3>
-
-    <div class="menu-list">
-
-      <div class="menu-item">
-        <div class="menu-header">
-          <h4>Spanish Latte</h4>
-          <span class="price">₱89</span>
-        </div>
-        <p class="desc">Sweet creamy latte with condensed milk.</p>
-        <p class="ingredients">Espresso · Fresh Milk · Sugar</p>
-        <div class="tags"><span>Hot</span><span>Cold</span></div>
-      </div>
-
-      <div class="menu-item">
-        <div class="menu-header">
-          <h4>Caramel Macchiato</h4>
-          <span class="price">₱99</span>
-        </div>
-        <p class="desc">Bold espresso with vanilla and caramel drizzle.</p>
-        <p class="ingredients">Espresso · Caramel · Milk</p>
-        <div class="tags"><span>Hot</span><span>Cold</span></div>
-      </div>
-
+    <!-- FILTER BUTTONS -->
+    <div class="filter-buttons">
+        <button class="active" onclick="filterMenu('all')">All</button>
+        <button onclick="filterMenu('hot')">Hot</button>
+        <button onclick="filterMenu('cold')">Cold</button>
+        <button onclick="filterMenu('signature')">Signature</button>
+        <button onclick="filterMenu('classic')">Classic</button>
+        <button onclick="filterMenu('flavored')">Flavored</button>
     </div>
 
-    <!-- CATEGORY 2 -->
-    <h3 class="menu-category">💎 Classic</h3>
-
-    <div class="menu-list">
-
-      <div class="menu-item">
-        <div class="menu-header">
-          <h4>Americano</h4>
-          <span class="price">₱69</span>
-        </div>
-        <p class="desc">Clean and bold espresso with water.</p>
-        <p class="ingredients">Espresso · Water · Ice</p>
-        <div class="tags"><span>Hot</span><span>Cold</span></div>
-      </div>
-
-      <div class="menu-item">
-        <div class="menu-header">
-          <h4>Iced Latte</h4>
-          <span class="price">₱79</span>
-        </div>
-        <p class="desc">Classic espresso with milk.</p>
-        <p class="ingredients">Espresso · Milk · Ice</p>
-        <div class="tags"><span>Hot</span><span>Cold</span></div>
-      </div>
-
-      <div class="menu-item">
-        <div class="menu-header">
-          <h4>Cappuccino</h4>
-          <span class="price">₱79</span>
-        </div>
-        <p class="desc">Espresso with steamed milk and foam.</p>
-        <p class="ingredients">Espresso · Foam</p>
-        <div class="tags"><span>Hot</span></div>
-      </div>
-
+    <!-- MENU GRID -->
+    <div class="menu-grid" id="productGrid">
+        <!-- JS inserts product cards here -->
     </div>
+</section>
 
-    <!-- CATEGORY 3 -->
-    <h3 class="menu-category">🍯 Flavored Lattes</h3>
+<!-- GALLERY -->
+<section class="section" id="gallery">
+    <h2>Gallery</h2>
 
-    <div class="menu-list">
-
-      <div class="menu-item">
-        <div class="menu-header">
-          <h4>Vanilla Latte</h4>
-          <span class="price">₱89</span>
-        </div>
-        <p class="desc">Smooth latte with vanilla sweetness.</p>
-        <p class="ingredients">Espresso · Milk · Vanilla</p>
-        <div class="tags"><span>Hot</span><span>Cold</span></div>
+    <div class="swiper mySwiper">
+      <div class="swiper-wrapper">
+        <div class="swiper-slide"><img src="https://images.unsplash.com/photo-1495474472287-4d71bcdd2085"></div>
+        <div class="swiper-slide"><img src="https://images.unsplash.com/photo-1509042239860-f550ce710b93"></div>
+        <div class="swiper-slide"><img src="https://images.unsplash.com/photo-1470337458703-46ad1756a187"></div>
       </div>
-
-      <div class="menu-item">
-        <div class="menu-header">
-          <h4>Hazelnut Latte</h4>
-          <span class="price">₱89</span>
-        </div>
-        <p class="desc">Nutty aromatic latte with creaminess.</p>
-        <p class="ingredients">Espresso · Milk · Hazelnut</p>
-        <div class="tags"><span>Hot</span><span>Cold</span></div>
-      </div>
-
-      <div class="menu-item">
-        <div class="menu-header">
-          <h4>Brown Sugar Latte</h4>
-          <span class="price">₱89</span>
-        </div>
-        <p class="desc">Caramel-like sweetness from brown sugar syrup.</p>
-        <p class="ingredients">Espresso · Milk · Brown Sugar</p>
-        <div class="tags"><span>Hot</span><span>Cold</span></div>
-      </div>
-
-      <div class="menu-item">
-        <div class="menu-header">
-          <h4>Café Mocha</h4>
-          <span class="price">₱99</span>
-        </div>
-        <p class="desc">Chocolate-rich espresso latte.</p>
-        <p class="ingredients">Espresso · Milk · Chocolate</p>
-        <div class="tags"><span>Hot</span><span>Cold</span></div>
-      </div>
-
-      <div class="menu-item">
-        <div class="menu-header">
-          <h4>Dark Chocolate Latte</h4>
-          <span class="price">₱109</span>
-        </div>
-        <p class="desc">Premium dark cocoa with espresso.</p>
-        <p class="ingredients">Espresso · Milk · Dark Chocolate</p>
-        <div class="tags"><span>Hot</span><span>Cold</span></div>
-      </div>
-
+      <div class="swiper-pagination"></div>
     </div>
+</section>
 
-  </section>
+<!-- ABOUT -->
+<section class="section" id="about">
+    <h2>Our Story</h2>
+    <p style="max-width:700px;margin:auto;text-align:center;font-size:19px;line-height:1.7;">
+        Kape Tayo brings comfort in every cup.  
+        From handcrafted signature lattes to bold classics, each drink is brewed with precision, love, and passion.  
+        Whether on the go or relaxing at home—your coffee moment matters.
+    </p>
+</section>
+
+<!-- ORDER -->
+<section class="section" id="order">
+    <h2>Order Online</h2>
+    <p style="text-align:center;">Scan the QR to place your order.</p>
+    <center><img src="orderqr.png" width="140"></center>
+</section>
 
 
-  <!-- FOOTER -->
-  <footer class="footer">
-    <div class="footer-container">
-      <p>© 2026 Kape Tayo. All rights reserved.</p>
 
-      <div class="social-icons">
-        <a href="https://www.facebook.com/profile.php?id=100066557031045" target="_blank">
-          <i class="fab fa-facebook-f"></i>
-        </a>
+<!-- FOOTER -->
 
-        <a href="https://www.instagram.com/titodondie_/" target="_blank">
-          <i class="fab fa-instagram"></i>
-        </a>
+<footer class="footer">
+  <div class="footer-container">
+    <p class="footer-text">© 2026 Kape Tayo. All rights reserved.</p>
 
-        <a href="https://www.tiktok.com/@dondieventure?is_from_webapp=1&sender_device=pc" target="_blank">
-          <i class="fab fa-tiktok"></i>
-        </a>
-      </div>
+    <div class="social-icons">
+      <!-- Facebook -->
+      <a href="https://www.facebook.com/profile.php?id=100066557031045" target="_blank">
+        <i class="fa-brands fa-facebook-f"></i>
+      </a>
+
+      <!-- Instagram -->
+      <a href="https://www.instagram.com/titodondie_/" target="_blank">
+        <i class="fa-brands fa-instagram"></i>
+      </a>
+
+      <!-- TikTok -->
+      <a href="https://www.tiktok.com/@dondieventure?is_from_webapp=1&sender_device=pc" target="_blank">
+        <i class="fa-brands fa-tiktok"></i>
+      </a>
     </div>
-  </footer>
+  </div>
+</footer>
 
+<!-- Font Awesome 6 -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/js/all.min.js" crossorigin="anonymous" defer></script>
+
+
+
+<!-- PRODUCT MODAL -->
+<div class="modal-bg" id="modalBg">
+    <div class="modal-box" id="modalBox">
+        <span class="modal-close" onclick="closeModal()">×</span>
+        <img id="modalImg">
+        <h2 id="modalName" style="margin-top:10px;"></h2>
+        <p id="modalDesc"></p>
+        <p><strong>Ingredients:</strong> <span id="modalIng"></span></p>
+        <p style="font-size:22px;font-weight:700;">₱<span id="modalPrice"></span></p>
+        <button class="btn" onclick="addToCartFromModal()">Add to Cart</button>
+    </div>
+</div>
+
+<!-- CART PANEL -->
+<div class="cart-panel" id="cartPanel">
+    <h2>Your Cart</h2>
+    <div id="cartItems"></div>
+    <h3 style="margin-top:20px;">Total: ₱<span id="cartTotal">0</span></h3>
+</div>
+
+<!-- SWIPER JS -->
+<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
+<script>
+/* ------------------------------------
+   DARK MODE
+------------------------------------ */
+function toggleDark(){
+    document.body.classList.toggle("dark");
+    document.querySelector(".toggle-dark").textContent =
+      document.body.classList.contains("dark") ? "☀️" : "🌙";
+}
+
+/* ------------------------------------
+   SAMPLE PRODUCT DATA
+------------------------------------ */
+const products = [
+    {
+        name:"Spanish Latte",
+        price:89,
+        category:["signature","hot","cold"],
+        desc:"Sweet creamy latte with condensed milk.",
+        ing:"Espresso, fresh milk, sugar",
+   },
+    {
+        name:"Caramel Macchiato",
+        price:99,
+        category:["signature","hot","cold"],
+        desc:"Bold espresso with vanilla & caramel drizzle.",
+        ing:"Espresso, caramel, milk",
+    },
+    {
+        name:"Americano",
+        price:69,
+        category:["classic","hot","cold"],
+        desc:"Clean & bold espresso with water.",
+        ing:"Espresso, water, ice",
+    },
+    {
+        name:"Iced Latte",
+        price:79,
+        category:["classic","cold","hot"],
+        desc:"Classic espresso with milk.",
+        ing:"Espresso, milk, ice",
+    },
+    {
+        name:"Cappuccino",
+        price:79,
+        category:["classic","hot"],
+        desc:"Espresso with steamed milk & foam.",
+        ing:"Espresso, steamed milk, foam",
+    },
+    {
+        name:"Vanilla Latte",
+        price:89,
+        category:["flavored","hot","cold"],
+        desc:"Smooth latte with vanilla sweetness.",
+        ing:"Espresso, milk, vanilla syrup",
+    },
+    {
+        name:"Hazelnut Latte",
+        price:89,
+        category:["flavored","hot","cold"],
+        desc:"Nutty aromatic latte.",
+        ing:"Espresso, milk, hazelnut syrup",
+    },
+    {
+        name:"Brown Sugar Latte",
+        price:89,
+        category:["flavored","hot","cold"],
+        desc:"Caramel-like sweetness from brown sugar.",
+        ing:"Espresso, milk, brown sugar syrup",
+        img:"https://unsplash.com/photos/white-ceramic-mug-with-brown-liquid-inside-vgNU1ujE8Mk"
+    },
+    {
+        name:"Café Mocha",
+        price:99,
+        category:["flavored","hot","cold"],
+        desc:"Chocolate-rich espresso latte.",
+        ing:"Espresso, milk, chocolate syrup",
+        img:"https://unsplash.com/photos/white-ceramic-cup-with-saucer-on-brown-wooden-table-c8gSQkwWoRA"
+
+    },
+    {
+        name:"Dark Chocolate Latte",
+        price:109,
+        category:["flavored","hot","cold"],
+        desc:"Premium dark cocoa latte.",
+        ing:"Espresso, milk, dark chocolate",
+        img:"https://unsplash.com/photos/white-ceramic-mug-with-brown-liquid-inside-vgNU1ujE8Mk"
+
+    }
+];
+
+/* ------------------------------------
+   BUILD MENU CARDS
+------------------------------------ */
+function loadProducts(){
+    const grid=document.getElementById("productGrid");
+    grid.innerHTML="";
+    products.forEach((p,i)=>{
+        let steam = p.category.includes("hot") ? `<img class='hot-steam' src='https://i.imgur.com/R2RzCyt.png'>` : "";
+        grid.innerHTML+=`
+            <div class="card item ${p.category.join(" ")}" onclick="openModal(${i})">
+                <div style="position:relative;">
+                    <img src="${p.img}">
+                    ${steam}
+                </div>
+                <div class="card-body">
+                    <h3>${p.name}</h3>
+                    <p>₱${p.price}</p>
+                </div>
+            </div>
+        `;
+    });
+}
+loadProducts();
+
+/* ------------------------------------
+   PRODUCT MODAL
+------------------------------------ */
+let selectedProductIndex=null;
+
+function openModal(i){
+    selectedProductIndex=i;
+    const p=products[i];
+
+    document.getElementById("modalImg").src=p.img;
+    document.getElementById("modalName").textContent=p.name;
+    document.getElementById("modalDesc").textContent=p.desc;
+    document.getElementById("modalIng").textContent=p.ing;
+    document.getElementById("modalPrice").textContent=p.price;
+
+    document.getElementById("modalBg").style.display="flex";
+}
+function closeModal(){
+    document.getElementById("modalBg").style.display="none";
+}
+
+/* ------------------------------------
+   CART LOGIC
+------------------------------------ */
+let cart = JSON.parse(localStorage.getItem("cart")||"[]");
+function saveCart(){localStorage.setItem("cart",JSON.stringify(cart));}
+
+function addToCartFromModal(){
+    const p=products[selectedProductIndex];
+    cart.push(p);
+    saveCart();
+    closeModal();
+    renderCart();
+}
+
+function toggleCart(){
+    document.getElementById("cartPanel").classList.toggle("open");
+}
+
+function renderCart(){
+    let cartBox=document.getElementById("cartItems");
+    cartBox.innerHTML="";
+    let total=0;
+
+    cart.forEach((item,i)=>{
+        total+=item.price;
+        cartBox.innerHTML+=`
+            <div class="cart-item">
+                <p class="cart-item-name">${item.name} — ₱${item.price}</p>
+                <button onclick="removeCartItem(${i})">Remove</button>
+            </div>
+        `;
+    });
+
+    document.getElementById("cartTotal").textContent=total;
+}
+renderCart();
+
+function removeCartItem(i){
+    cart.splice(i,1);
+    saveCart();
+    renderCart();
+}
+
+/* ------------------------------------
+   MENU FILTER
+------------------------------------ */
+function filterMenu(category){
+    const items=document.querySelectorAll(".item");
+    document.querySelectorAll(".filter-buttons button").forEach(b=>b.classList.remove("active"));
+    event.target.classList.add("active");
+
+    items.forEach(item=>{
+        if(category==="all" || item.classList.contains(category)){ item.style.display="block"; }
+        else { item.style.display="none"; }
+    });
+}
+
+/* ------------------------------------
+   STAMP CARD
+------------------------------------ */
+let stamps = parseInt(localStorage.getItem("stamps")||"0");
+document.getElementById("stampCount").textContent=`Stamps: ${stamps} / 10`;
+
+function generateStamp(){
+    stamps++;
+    if(stamps>10) stamps=10;
+    localStorage.setItem("stamps",stamps);
+    document.getElementById("stampCount").textContent=`Stamps: ${stamps} / 10`;
+}
+
+/* ------------------------------------
+   SWIPER INIT
+------------------------------------ */
+new Swiper(".mySwiper", {
+    pagination:{el:".swiper-pagination"},
+    autoplay:{delay:2500},
+    loop:true
+});
+</script>
 </body>
-
 </html>
