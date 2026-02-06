@@ -1,636 +1,267 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Kape Tayo — Crafted Coffee</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Kape Tayo</title>
 
-<!-- GOOGLE FONTS -->
-<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: 'Poppins', Arial, sans-serif;
+      background: #ffffff;
+      color: #1d1d1d;
+    }
 
-<!-- SWIPER -->
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"/>
+    /* NAVBAR */
+    nav {
+      width: 100%;
+      padding: 25px 80px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: fixed;
+      top: 0;
+      background: white;
+      box-shadow: 0 0 15px rgba(0,0,0,0.08);
+      z-index: 10;
+    }
 
-<style>
-/* ----------------------------------------------------
-   GLOBAL STYLE
----------------------------------------------------- */
-/* ----------------------------------------
-   FONT SYSTEM
----------------------------------------- */
-:root {
-  --font-serif: 'Cormorant Garamond', serif;
-  --font-sans: 'Inter', sans-serif;
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 35px;
+    }
 
-  --olive: #3E4D38;
-  --olive-dark: #2F3B2B;
-  --light-bg: #ffffff;
-  --text-dark: #222;
-  --radius-pill: 50px;
-}
+    nav ul li {
+      font-weight: 600;
+    }
 
-/* ----------------------------------------
-   GLOBAL RESETS
----------------------------------------- */
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
+    nav a {
+      text-decoration: none;
+      color: #1d1d1d;
+      transition: 0.3s;
+    }
 
-body {
-  font-family: var(--font-sans);
-  background: var(--light-bg);
-  color: var(--text-dark);
-  line-height: 1.5;
-  padding-bottom: 80px;
-}
+    nav a:hover {
+      color: #2e3c8d;
+    }
 
-a {
-  text-decoration: none;
-  color: inherit;
-}
+    /* HERO */
+    .hero {
+      height: 100vh;
+      width: 100%;
+      position: relative;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin-top: 90px;
+    }
 
-/* ----------------------------------------
-   HEADER / NAVIGATION
----------------------------------------- */
-.header {
-  width: 100%;
-  padding: 22px 0;
-  border-bottom: 1px solid #ececec;
-  background: #ffffffcc;
-  backdrop-filter: blur(8px);
-  position: sticky;
-  top: 0;
-  z-index: 50;
-}
+    .hero img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      filter: brightness(0.45);
+      position: absolute;
+      top: 0;
+      left: 0;
+    }
 
-.nav-container {
-  max-width: 1150px;
-  margin: auto;
-  padding: 0 22px;
+    .hero-text {
+      position: relative;
+      color: white;
+      text-align: center;
+      max-width: 800px;
+    }
 
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
+    .hero-text h1 {
+      font-size: 60px;
+      font-weight: 700;
+      margin-bottom: 20px;
+    }
 
-.logo {
-  font-family: var(--font-serif);
-  font-size: 32px;
-  font-weight: 600;
-  color: var(--olive);
-}
+    .hero-text p {
+      font-size: 20px;
+      line-height: 1.6;
+      opacity: 0.85;
+    }
 
-.nav a {
-  margin-left: 30px;
-  font-size: 15px;
-  font-weight: 500;
-  color: var(--text-dark);
-  transition: 0.3s ease;
-}
+    /* SECTION */
+    .section {
+      padding: 120px 80px;
+      text-align: center;
+    }
 
-.nav a:hover {
-  color: var(--olive-dark);
-}
+    .section h2 {
+      font-size: 45px;
+      font-weight: 700;
+      color: #2e3c8d;
+      margin-bottom: 25px;
+    }
 
-/* ----------------------------------------
-   HERO SECTION
----------------------------------------- */
-.hero {
-  text-align: center;
-  padding: 110px 20px 80px;
-}
+    .section p {
+      max-width: 750px;
+      margin: auto;
+      font-size: 18px;
+      opacity: 0.85;
+      line-height: 1.7;
+    }
 
-.hero-title {
-  font-family: var(--font-serif);
-  font-size: 54px;
-  font-weight: 600;
-  color: var(--text-dark);
-  line-height: 1.1;
-}
+    /* PRODUCT CARDS */
+    .products {
+      display: flex;
+      justify-content: center;
+      gap: 35px;
+      flex-wrap: wrap;
+      margin-top: 60px;
+    }
 
-.hero-sub {
-  font-size: 18px;
-  margin: 20px 0 38px;
-  opacity: 0.85;
-}
+    .card {
+      background: #e8eef7;
+      width: 260px;
+      padding: 25px;
+      border-radius: 18px;
+      text-align: center;
+      transition: 0.3s;
+    }
 
-.btn-primary {
-  background: var(--olive);
-  color: white;
-  padding: 12px 32px;
-  border-radius: var(--radius-pill);
-  font-size: 15px;
-  font-weight: 600;
-  display: inline-block;
-  transition: 0.25s ease;
-}
+    .card:hover {
+      transform: translateY(-8px);
+    }
 
-.btn-primary:hover {
-  background: var(--olive-dark);
-  transform: translateY(-2px);
-}
+    .card img {
+      width: 170px;
+      height: 170px;
+      object-fit: contain;
+      margin-bottom: 20px;
+    }
 
-/* ----------------------------------------
-   MENU SECTION
----------------------------------------- */
-.menu-section {
-  max-width: 900px;
-  margin: 80px auto;
-  padding: 0 20px;
-}
+    .card h3 {
+      font-size: 20px;
+      font-weight: 700;
+      color: #2e3c8d;
+      margin-bottom: 8px;
+    }
 
-.section-title {
-  text-align: center;
-  font-family: var(--font-serif);
-  font-size: 40px;
-  font-weight: 600;
-  margin-bottom: 40px;
-  color: var(--olive-dark);
-}
+    .card span {
+      font-size: 16px;
+      opacity: 0.6;
+    }
 
-/* Category Titles */
-.menu-category {
-  font-family: var(--font-serif);
-  font-size: 30px;
-  margin: 45px 0 20px;
-  color: var(--olive);
-}
+    /* FOOTER */
+    .footer {
+      background: #111c3c;
+      color: white;
+      padding: 40px 20px;
+      margin-top: 80px;
+    }
 
-.menu-list {
-  display: flex;
-  flex-direction: column;
-  gap: 26px;
-}
+    .footer-container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      max-width: 1200px;
+      margin: auto;
+      flex-wrap: wrap;
+    }
 
-/* ----------------------------------------
-   MENU ITEM
----------------------------------------- */
-.menu-item {
-  padding: 22px;
-  border: 1px solid #efefef;
-  border-radius: 12px;
-  background: #fff;
-}
+    .social-icons a {
+      color: white;
+      font-size: 22px;
+      margin-left: 18px;
+      transition: 0.3s;
+    }
 
-.menu-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
+    .social-icons a:hover {
+      color: #859dff;
+    }
+  </style>
 
-.menu-header h4 {
-  font-family: var(--font-serif);
-  font-size: 24px;
-  font-weight: 600;
-}
-
-.price {
-  font-family: var(--font-serif);
-  font-size: 20px;
-  font-weight: 600;
-  color: var(--olive);
-}
-
-.desc {
-  font-size: 15px;
-  margin: 6px 0 2px;
-  opacity: 0.9;
-}
-
-.ingredients {
-  font-size: 14px;
-  opacity: 0.7;
-}
-
-/* Tags */
-.tags {
-  margin-top: 12px;
-}
-
-.tags span {
-  display: inline-block;
-  background: var(--olive);
-  color: white;
-  padding: 5px 14px;
-  border-radius: var(--radius-pill);
-  font-size: 12px;
-  font-weight: 600;
-  text-transform: uppercase;
-  margin-right: 8px;
-}
-
-/* ----------------------------------------
-   FOOTER
----------------------------------------- */
-.footer {
-  margin-top: 80px;
-  padding: 40px 0;
-  border-top: 1px solid #ececec;
-  text-align: center;
-}
-
-.footer-container p {
-  font-size: 14px;
-  opacity: 0.85;
-}
-
-.social-icons {
-  margin-top: 16px;
-  display: flex;
-  gap: 22px;
-  justify-content: center;
-}
-
-.social-icons a {
-  font-size: 20px;
-  color: var(--olive);
-  transition: 0.25s ease;
-}
-
-.social-icons a:hover {
-  color: var(--olive-dark);
-  transform: translateY(-3px);
-}
-
-/* ----------------------------------------
-   MOBILE RESPONSIVE
----------------------------------------- */
-@media (max-width: 768px) {
-  .hero-title {
-    font-size: 38px;
-  }
-
-  .nav a {
-    margin-left: 16px;
-  }
-}
-
-@media (max-width: 480px) {
-  .hero-title {
-    font-size: 32px;
-  }
-
-  .menu-header h4 {
-    font-size: 20px;
-  }
-
-  .price {
-    font-size: 18px;
-  }
-}
-</style>
+  <!-- Google Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
 </head>
+
 <body>
 
-<!-- NAVIGATION -->
+<!-- NAV -->
 <nav>
-    <img src="kapetayo (2).png">
-    <div>
-        <a href="#menu">Menu</a>
-        <a href="#gallery">Gallery</a>
-        <a href="#about">About</a>
-        <a href="#order">Order</a>
-        <img class="cart-icon" onclick="toggleCart()" src="https://cdn-icons-png.flaticon.com/512/891/891462.png">
-        <span class="toggle-dark" onclick="toggleDark()">🌙</span>
-    </div>
+  <div class="logo"><strong>KAPE TAYO</strong></div>
+  <ul>
+    <li><a href="#">Home</a></li>
+    <li><a href="#">Menu</a></li>
+    <li><a href="#">About</a></li>
+    <li><a href="#">Store</a></li>
+  </ul>
 </nav>
-
-<!-- FLOATING BEANS -->
-<img class="bean" style="top:22%;left:6%;" src="https://i.imgur.com/1S7c8qA.png">
-<img class="bean" style="top:68%;left:84%;animation-duration:6s;" src="https://i.imgur.com/1S7c8qA.png">
 
 <!-- HERO -->
 <section class="hero">
-    <div class="hero-overlay"></div>
-    <div class="hero-content">
-        <h1>Kape Tayo,<br>at kwentuhan</h1>
-        <p>Your comfort drink — freshly brewed and made with heart.</p>
-        <a class="btn" href="#menu">Order Now</a>
+  <img src="YOUR-HERO-IMAGE.jpg" alt="Coffee Beans">
+  <div class="hero-text">
+    <h1>A Necessity, Not a Luxury</h1>
+    <p>Great coffee should be accessible to everyone.  
+    Kape Tayo brings premium taste at an affordable price—crafted for your daily grind.</p>
+  </div>
+</section>
+
+<!-- MABUHAY SECTION -->
+<section class="section">
+  <h2>Mabuhay, Philippines!</h2>
+  <p>
+    We're excited to bring handcrafted coffee straight to your cup.  
+    Quality, affordability, and passion—this is the Kape Tayo promise.
+  </p>
+</section>
+
+<!-- PRODUCTS -->
+<section class="section">
+  <h2>A Brew To Beat The Blues</h2>
+
+  <div class="products">
+    <div class="card">
+      <img src="YOUR-IMAGE.jpg" alt="">
+      <h3>Caramel Latte</h3>
+      <span>Hot / Iced</span>
     </div>
-</section>
 
-<!-- MENU -->
-<section class="section" id="menu">
-    <h2>Our Coffee Selection</h2>
-
-    <!-- FILTER BUTTONS -->
-    <div class="filter-buttons">
-        <button class="active" onclick="filterMenu('all')">All</button>
-        <button onclick="filterMenu('hot')">Hot</button>
-        <button onclick="filterMenu('cold')">Cold</button>
-        <button onclick="filterMenu('signature')">Signature</button>
-        <button onclick="filterMenu('classic')">Classic</button>
-        <button onclick="filterMenu('flavored')">Flavored</button>
+    <div class="card">
+      <img src="YOUR-IMAGE.jpg" alt="">
+      <h3>Berry Cheesecake</h3>
+      <span>Frappe</span>
     </div>
 
-    <!-- MENU GRID -->
-    <div class="menu-grid" id="productGrid">
-        <!-- JS inserts product cards here -->
+    <div class="card">
+      <img src="YOUR-IMAGE.jpg" alt="">
+      <h3>Matcha Cream</h3>
+      <span>Ice</span>
     </div>
+  </div>
 </section>
-
-<!-- GALLERY -->
-<section class="section" id="gallery">
-    <h2>Gallery</h2>
-
-    <div class="swiper mySwiper">
-      <div class="swiper-wrapper">
-        <div class="swiper-slide"><img src="https://images.unsplash.com/photo-1495474472287-4d71bcdd2085"></div>
-        <div class="swiper-slide"><img src="https://images.unsplash.com/photo-1509042239860-f550ce710b93"></div>
-        <div class="swiper-slide"><img src="https://images.unsplash.com/photo-1470337458703-46ad1756a187"></div>
-      </div>
-      <div class="swiper-pagination"></div>
-    </div>
-</section>
-
-<!-- ABOUT -->
-<section class="section" id="about">
-    <h2>Our Story</h2>
-    <p style="max-width:700px;margin:auto;text-align:center;font-size:19px;line-height:1.7;">
-        Kape Tayo brings comfort in every cup.  
-        From handcrafted signature lattes to bold classics, each drink is brewed with precision, love, and passion.  
-        Whether on the go or relaxing at home—your coffee moment matters.
-    </p>
-</section>
-
-<!-- ORDER -->
-<section class="section" id="order">
-    <h2>Order Online</h2>
-    <p style="text-align:center;">Scan the QR to place your order.</p>
-    <center><img src="orderqr.png" width="140"></center>
-</section>
-
-
 
 <!-- FOOTER -->
-
 <footer class="footer">
   <div class="footer-container">
-    <p class="footer-text">© 2026 Kape Tayo. All rights reserved.</p>
+    <p>© 2026 Kape Tayo. All rights reserved.</p>
 
     <div class="social-icons">
-      <!-- Facebook -->
       <a href="https://www.facebook.com/profile.php?id=100066557031045" target="_blank">
-        <i class="fa-brands fa-facebook-f"></i>
+        <i class="fab fa-facebook-f"></i>
       </a>
 
-      <!-- Instagram -->
       <a href="https://www.instagram.com/titodondie_/" target="_blank">
-        <i class="fa-brands fa-instagram"></i>
+        <i class="fab fa-instagram"></i>
       </a>
 
-      <!-- TikTok -->
       <a href="https://www.tiktok.com/@dondieventure?is_from_webapp=1&sender_device=pc" target="_blank">
-        <i class="fa-brands fa-tiktok"></i>
+        <i class="fab fa-tiktok"></i>
       </a>
     </div>
   </div>
 </footer>
 
-<!-- Font Awesome 6 -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/js/all.min.js" crossorigin="anonymous" defer></script>
+<!-- Font Awesome -->
+<script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
 
-
-
-<!-- PRODUCT MODAL -->
-<div class="modal-bg" id="modalBg">
-    <div class="modal-box" id="modalBox">
-        <span class="modal-close" onclick="closeModal()">×</span>
-        <img id="modalImg">
-        <h2 id="modalName" style="margin-top:10px;"></h2>
-        <p id="modalDesc"></p>
-        <p><strong>Ingredients:</strong> <span id="modalIng"></span></p>
-        <p style="font-size:22px;font-weight:700;">₱<span id="modalPrice"></span></p>
-        <button class="btn" onclick="addToCartFromModal()">Add to Cart</button>
-    </div>
-</div>
-
-<!-- CART PANEL -->
-<div class="cart-panel" id="cartPanel">
-    <h2>Your Cart</h2>
-    <div id="cartItems"></div>
-    <h3 style="margin-top:20px;">Total: ₱<span id="cartTotal">0</span></h3>
-</div>
-
-<!-- SWIPER JS -->
-<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
-
-<script>
-/* ------------------------------------
-   DARK MODE
------------------------------------- */
-function toggleDark(){
-    document.body.classList.toggle("dark");
-    document.querySelector(".toggle-dark").textContent =
-      document.body.classList.contains("dark") ? "☀️" : "🌙";
-}
-
-/* ------------------------------------
-   SAMPLE PRODUCT DATA
------------------------------------- */
-const products = [
-    {
-        name:"Spanish Latte",
-        price:89,
-        category:["signature","hot","cold"],
-        desc:"Sweet creamy latte with condensed milk.",
-        ing:"Espresso, fresh milk, sugar",
-   },
-    {
-        name:"Caramel Macchiato",
-        price:99,
-        category:["signature","hot","cold"],
-        desc:"Bold espresso with vanilla & caramel drizzle.",
-        ing:"Espresso, caramel, milk",
-    },
-    {
-        name:"Americano",
-        price:69,
-        category:["classic","hot","cold"],
-        desc:"Clean & bold espresso with water.",
-        ing:"Espresso, water, ice",
-    },
-    {
-        name:"Iced Latte",
-        price:79,
-        category:["classic","cold","hot"],
-        desc:"Classic espresso with milk.",
-        ing:"Espresso, milk, ice",
-    },
-    {
-        name:"Cappuccino",
-        price:79,
-        category:["classic","hot"],
-        desc:"Espresso with steamed milk & foam.",
-        ing:"Espresso, steamed milk, foam",
-    },
-    {
-        name:"Vanilla Latte",
-        price:89,
-        category:["flavored","hot","cold"],
-        desc:"Smooth latte with vanilla sweetness.",
-        ing:"Espresso, milk, vanilla syrup",
-    },
-    {
-        name:"Hazelnut Latte",
-        price:89,
-        category:["flavored","hot","cold"],
-        desc:"Nutty aromatic latte.",
-        ing:"Espresso, milk, hazelnut syrup",
-    },
-    {
-        name:"Brown Sugar Latte",
-        price:89,
-        category:["flavored","hot","cold"],
-        desc:"Caramel-like sweetness from brown sugar.",
-        ing:"Espresso, milk, brown sugar syrup",
-        img:"https://unsplash.com/photos/white-ceramic-mug-with-brown-liquid-inside-vgNU1ujE8Mk"
-    },
-    {
-        name:"Café Mocha",
-        price:99,
-        category:["flavored","hot","cold"],
-        desc:"Chocolate-rich espresso latte.",
-        ing:"Espresso, milk, chocolate syrup",
-        img:"https://unsplash.com/photos/white-ceramic-cup-with-saucer-on-brown-wooden-table-c8gSQkwWoRA"
-
-    },
-    {
-        name:"Dark Chocolate Latte",
-        price:109,
-        category:["flavored","hot","cold"],
-        desc:"Premium dark cocoa latte.",
-        ing:"Espresso, milk, dark chocolate",
-        img:"https://unsplash.com/photos/white-ceramic-mug-with-brown-liquid-inside-vgNU1ujE8Mk"
-
-    }
-];
-
-/* ------------------------------------
-   BUILD MENU CARDS
------------------------------------- */
-function loadProducts(){
-    const grid=document.getElementById("productGrid");
-    grid.innerHTML="";
-    products.forEach((p,i)=>{
-        let steam = p.category.includes("hot") ? `<img class='hot-steam' src='https://i.imgur.com/R2RzCyt.png'>` : "";
-        grid.innerHTML+=`
-            <div class="card item ${p.category.join(" ")}" onclick="openModal(${i})">
-                <div style="position:relative;">
-                    <img src="${p.img}">
-                    ${steam}
-                </div>
-                <div class="card-body">
-                    <h3>${p.name}</h3>
-                    <p>₱${p.price}</p>
-                </div>
-            </div>
-        `;
-    });
-}
-loadProducts();
-
-/* ------------------------------------
-   PRODUCT MODAL
------------------------------------- */
-let selectedProductIndex=null;
-
-function openModal(i){
-    selectedProductIndex=i;
-    const p=products[i];
-
-    document.getElementById("modalImg").src=p.img;
-    document.getElementById("modalName").textContent=p.name;
-    document.getElementById("modalDesc").textContent=p.desc;
-    document.getElementById("modalIng").textContent=p.ing;
-    document.getElementById("modalPrice").textContent=p.price;
-
-    document.getElementById("modalBg").style.display="flex";
-}
-function closeModal(){
-    document.getElementById("modalBg").style.display="none";
-}
-
-/* ------------------------------------
-   CART LOGIC
------------------------------------- */
-let cart = JSON.parse(localStorage.getItem("cart")||"[]");
-function saveCart(){localStorage.setItem("cart",JSON.stringify(cart));}
-
-function addToCartFromModal(){
-    const p=products[selectedProductIndex];
-    cart.push(p);
-    saveCart();
-    closeModal();
-    renderCart();
-}
-
-function toggleCart(){
-    document.getElementById("cartPanel").classList.toggle("open");
-}
-
-function renderCart(){
-    let cartBox=document.getElementById("cartItems");
-    cartBox.innerHTML="";
-    let total=0;
-
-    cart.forEach((item,i)=>{
-        total+=item.price;
-        cartBox.innerHTML+=`
-            <div class="cart-item">
-                <p class="cart-item-name">${item.name} — ₱${item.price}</p>
-                <button onclick="removeCartItem(${i})">Remove</button>
-            </div>
-        `;
-    });
-
-    document.getElementById("cartTotal").textContent=total;
-}
-renderCart();
-
-function removeCartItem(i){
-    cart.splice(i,1);
-    saveCart();
-    renderCart();
-}
-
-/* ------------------------------------
-   MENU FILTER
------------------------------------- */
-function filterMenu(category){
-    const items=document.querySelectorAll(".item");
-    document.querySelectorAll(".filter-buttons button").forEach(b=>b.classList.remove("active"));
-    event.target.classList.add("active");
-
-    items.forEach(item=>{
-        if(category==="all" || item.classList.contains(category)){ item.style.display="block"; }
-        else { item.style.display="none"; }
-    });
-}
-
-/* ------------------------------------
-   STAMP CARD
------------------------------------- */
-let stamps = parseInt(localStorage.getItem("stamps")||"0");
-document.getElementById("stampCount").textContent=`Stamps: ${stamps} / 10`;
-
-function generateStamp(){
-    stamps++;
-    if(stamps>10) stamps=10;
-    localStorage.setItem("stamps",stamps);
-    document.getElementById("stampCount").textContent=`Stamps: ${stamps} / 10`;
-}
-
-/* ------------------------------------
-   SWIPER INIT
------------------------------------- */
-new Swiper(".mySwiper", {
-    pagination:{el:".swiper-pagination"},
-    autoplay:{delay:2500},
-    loop:true
-});
-</script>
 </body>
 </html>
