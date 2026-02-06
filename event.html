@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Book an Event – Kape Tayo</title>
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+  <style>
+    body { font-family: 'Poppins', sans-serif; margin: 0; background: #ffffff; }
+
+    .container {
+      max-width: 850px;
+      margin: 80px auto;
+      padding: 40px;
+      background: #eef3fa;
+      border-radius: 20px;
+      box-shadow: 0 4px 25px rgba(0,0,0,0.08);
+    }
+
+    h1 {
+      text-align: center;
+      color: #2e3c8d;
+      margin-bottom: 30px;
+      font-size: 38px;
+    }
+
+    label { font-weight: 600; margin-top: 15px; display: block; }
+
+    input, select, textarea {
+      width: 100%;
+      padding: 14px;
+      margin-top: 5px;
+      border-radius: 10px;
+      border: 1px solid #ccc;
+      font-size: 16px;
+      outline: none;
+    }
+
+    input:focus, select:focus, textarea:focus {
+      border-color: #2e3c8d;
+    }
+
+    button {
+      width: 100%;
+      padding: 16px;
+      background: #2e3c8d;
+      border: none;
+      color: white;
+      font-size: 18px;
+      font-weight: 600;
+      border-radius: 10px;
+      margin-top: 30px;
+      cursor: pointer;
+    }
+
+    button:hover { background: #1e2c6d; }
+
+    /* popup */
+    #popup {
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background: rgba(0,0,0,0.6);
+      display: none;
+      justify-content: center;
+      align-items: center;
+    }
+
+    #popup .box {
+      background: white;
+      padding: 40px;
+      border-radius: 15px;
+      text-align: center;
+      width: 340px;
+    }
+  </style>
+</head>
+
+<body>
+
+<div class="container">
+  <h1>Book an Event</h1>
+
+  <form id="eventForm">
+
+    <label>Full Name</label>
+    <input name="fullName" required>
+
+    <label>Email</label>
+    <input name="email" type="email" required>
+
+    <label>Phone Number</label>
+    <input name="phone" required>
+
+    <label>Event Type</label>
+    <select name="eventType" required>
+      <option value="">Choose an event</option>
+      <option>Wedding</option>
+      <option>Birthday</option>
+      <option>Corporate Event</option>
+      <option>Private Catering</option>
+      <option>Pop-up Booth</option>
+    </select>
+
+    <label>Date</label>
+    <input type="date" name="date" required>
+
+    <label>Time</label>
+    <input type="time" name="time" required>
+
+    <label>Additional Notes</label>
+    <textarea name="message" rows="5"></textarea>
+
+    <button type="submit">Submit Booking Request</button>
+  </form>
+</div>
+
+<!-- Confirmation Popup -->
+<div id="popup">
+  <div class="box">
+    <h3>Thank you!</h3>
+    <p>Your event request has been submitted successfully.</p>
+  </div>
+</div>
+
+
+<script>
+  const scriptURL = "PASTE_YOUR_GOOGLE_APPS_SCRIPT_URL_HERE";
+
+  document.getElementById('eventForm').addEventListener('submit', function(e) {
+    e.preventDefault();
+
+    let formData = new FormData(this);
+
+    fetch(scriptURL, { method: 'POST', body: formData })
+    .then(res => {
+      document.getElementById("popup").style.display = "flex";
+      this.reset();
+    })
+    .catch(err => alert("Error: " + err));
+  });
+</script>
+
+</body>
+</html>
