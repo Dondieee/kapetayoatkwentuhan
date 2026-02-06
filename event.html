@@ -5,18 +5,80 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Book an Event – Kape Tayo</title>
 
+  <!-- FontAwesome Icons -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
   <style>
-    body { font-family: 'Poppins', sans-serif; margin: 0; background: #ffffff; }
+    body { 
+      font-family: 'Poppins', sans-serif; 
+      margin: 0; 
+      background: #ffffff;
+    }
 
+    /* NAVBAR */
+    nav {
+      width: 100%;
+      padding: 20px 50px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: #ffffff;
+      box-shadow: 0 0 15px rgba(0,0,0,0.08);
+      position: fixed;
+      top: 0;
+      left: 0;
+      z-index: 10;
+    }
+
+    nav .logo img {
+      height: 55px;
+    }
+
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 35px;
+      margin-right: 20px;
+    }
+
+    nav ul li a {
+      text-decoration: none;
+      color: #1d1d1d;
+      font-weight: 600;
+      transition: 0.3s;
+    }
+
+    nav ul li a:hover {
+      color: #2e3c8d;
+    }
+
+    /* BACK BUTTON */
+    .back-btn {
+      display: inline-block;
+      margin-top: 110px;
+      margin-left: 50px;
+      text-decoration: none;
+      background: #2e3c8d;
+      padding: 10px 20px;
+      color: white;
+      font-weight: 600;
+      border-radius: 10px;
+      transition: 0.3s;
+    }
+
+    .back-btn:hover {
+      background: #1d295f;
+    }
+
+    /* FORM CONTAINER */
     .container {
       max-width: 850px;
-      margin: 80px auto;
+      margin: 40px auto;
       padding: 40px;
       background: #eef3fa;
       border-radius: 20px;
       box-shadow: 0 4px 25px rgba(0,0,0,0.08);
+      margin-top: 40px;
     }
 
     h1 {
@@ -26,7 +88,11 @@
       font-size: 38px;
     }
 
-    label { font-weight: 600; margin-top: 15px; display: block; }
+    label { 
+      font-weight: 600; 
+      margin-top: 15px; 
+      display: block; 
+    }
 
     input, select, textarea {
       width: 100%;
@@ -55,7 +121,9 @@
       cursor: pointer;
     }
 
-    button:hover { background: #1e2c6d; }
+    button:hover { 
+      background: #1e2c6d; 
+    }
 
     /* popup */
     #popup {
@@ -76,15 +144,35 @@
       width: 340px;
     }
   </style>
-</head>
 
+</head>
 <body>
 
+<!-- NAVBAR -->
+<nav>
+  <div class="logo">
+    <a href="index.html">
+      <img src="YOUR_LOGO.png" alt="Kape Tayo Logo">
+    </a>
+  </div>
+
+  <ul>
+    <li><a href="index.html">Home</a></li>
+    <li><a href="index.html#menu">Menu</a></li>
+    <li><a href="index.html#about">About</a></li>
+    <li><a href="index.html#store">Store</a></li>
+    <li><a href="event.html" style="color:#2e3c8d;">Book Event</a></li>
+  </ul>
+</nav>
+
+<!-- BACK BUTTON -->
+<a href="index.html" class="back-btn"><i class="fa-solid fa-arrow-left"></i> Back to Homepage</a>
+
+<!-- FORM -->
 <div class="container">
   <h1>Book an Event</h1>
 
   <form id="eventForm">
-
     <label>Full Name</label>
     <input name="fullName" required>
 
@@ -124,7 +212,6 @@
     <p>Your event request has been submitted successfully.</p>
   </div>
 </div>
-
 
 <script>
   const scriptURL = "PASTE_YOUR_GOOGLE_APPS_SCRIPT_URL_HERE";
